@@ -343,21 +343,15 @@ class GoogleMap extends Component {
 
         if (
           !prevCenter ||
-          Math.abs(currentCenter.lat - prevCenter.lat) +
-            Math.abs(currentCenter.lng - prevCenter.lng) >
+            Math.abs(currentCenter.lat - centerLatLng.lat) +
+            Math.abs(currentCenter.lng - centerLatLng.lng) >
             kEPS
         ) {
-          if (
-            Math.abs(currentCenter.lat - centerLatLng.lat) +
-              Math.abs(currentCenter.lng - centerLatLng.lng) >
-            kEPS
-          ) {
-            this.map_.panTo({
+            this.map_.panTo({ 
               lat: currentCenter.lat,
               lng: currentCenter.lng,
             });
           }
-        }
       }
 
       if (!isEmpty(this.props.zoom)) {
